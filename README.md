@@ -1,140 +1,136 @@
-#  AI Chatbot & Code Reviewer — Frontend
+# AI Chatbot & Code Reviewer — Frontend
 
+A modern **React 19 + Vite frontend** for an AI-powered developer platform that combines an intelligent chatbot and automated code review into a single developer-focused application.
 
-A modern **AI-powered developer workspace** built with **React 19 and Vite**, combining intelligent chat assistance, automated code review, authentication, and personalized history into a unified developer-focused interface.
-
-The application is designed to help developers and learners **ask technical questions, analyze source code, review AI-generated feedback, and manage their previous conversations and reviews** from a secure workspace.
+The platform allows developers and learners to **ask programming-related questions, submit source code for AI-powered analysis, receive actionable feedback, and manage their previous conversations and code reviews** through an authenticated workspace.
 
 ---
 
 ## 🚀 Overview
 
-The AI Developer Workspace provides a centralized environment for AI-assisted software development.
+The **AI Chatbot & Code Reviewer** frontend provides two core AI-powered capabilities:
 
-### Core Workflow
+### 🤖 AI Chatbot
 
-```text
-                         AI DEVELOPER WORKSPACE
-                                   │
-                    ┌──────────────┼──────────────┐
-                    │              │              │
-                    ▼              ▼              ▼
-              AI Chatbot       Code Review    User Profile
-                    │              │              │
-                    └──────────────┼──────────────┘
-                                   │
-                                   ▼
-                         Authenticated Workspace
-                                   │
-                                   ▼
-                           History & Sessions
-```
+An interactive programming assistant that helps users ask technical questions, understand concepts, troubleshoot code, and continue AI-powered conversations.
+
+### 🧠 AI Code Reviewer
+
+A dedicated workspace where users can submit source code and receive AI-generated feedback related to code quality, logic, structure, readability, maintainability, and potential improvements.
+
+Both features are integrated with a backend REST API and support user-specific history.
 
 ---
 
 ## ✨ Key Features
 
-### 🔐 Authentication & Security
-
-* User registration and login
-* JWT-based authentication
-* Persistent login sessions
-* Protected application routes
-* User profile management
-* Automatic redirection for unauthenticated users
-
-### 🤖 AI Chat Assistant
+### 🤖 AI Chatbot
 
 * Interactive AI programming assistant
-* Ask technical and development-related questions
-* Continue conversations within the workspace
+* Ask technical and programming questions
+* Continue conversations within the application
 * Markdown-formatted AI responses
 * Syntax highlighting for code snippets
-* Conversation history access
+* Conversation history
+* History sidebar for previous conversations
 
-### 🧠 AI Code Review
+### 🧠 AI Code Reviewer
 
 * Dedicated code review workspace
 * Source-code editor
 * Submit code for AI analysis
-* Receive structured AI-generated feedback
-* Review code quality, logic, structure, and improvements
+* AI-generated code review
+* Actionable improvement suggestions
+* Structured review results
+* Syntax-highlighted code
 * Save and restore previous reviews
+
+### 🔐 Authentication
+
+* User registration
+* User login
+* JWT-based authentication
+* Persistent authentication using `localStorage`
+* Protected application routes
+* User profile management
+* Automatic redirection for unauthenticated users
 
 ### 📚 History Management
 
 * Chat conversation history
 * Code review history
-* History sidebar for quick navigation
+* User-specific saved data
+* History sidebar navigation
 * Restore previous conversations and reviews
-* User-specific history
 
-### 🎨 Developer Experience
+### 🎨 User Experience
 
 * Modern developer-focused interface
-* Responsive layout
+* Responsive design
+* Clean navigation
 * Premium landing page
 * Reusable React components
-* Loading and feedback states
-* Clean navigation and workspace structure
+* Loading states
+* Markdown rendering
+* Syntax highlighting
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Technology                   | Purpose                                    |
-| ---------------------------- | ------------------------------------------ |
-| **React 19**                 | Component-based frontend development       |
-| **Vite**                     | Fast development and production build tool |
-| **React Router DOM**         | Client-side routing and protected routes   |
-| **Axios**                    | REST API communication                     |
-| **React Markdown**           | Markdown rendering for AI responses        |
-| **React Syntax Highlighter** | Code syntax highlighting                   |
-| **JavaScript / JSX**         | Application development                    |
-| **CSS**                      | UI styling                                 |
-| **ESLint**                   | Code quality and consistency               |
+| Technology                   | Purpose                             |
+| ---------------------------- | ----------------------------------- |
+| **React 19**                 | Frontend UI development             |
+| **Vite**                     | Development server and build tool   |
+| **React Router DOM**         | Client-side routing                 |
+| **Axios**                    | REST API communication              |
+| **React Markdown**           | Markdown rendering for AI responses |
+| **React Syntax Highlighter** | Code syntax highlighting            |
+| **JavaScript / JSX**         | Application development             |
+| **CSS**                      | UI styling                          |
+| **ESLint**                   | Code quality and consistency        |
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ Application Architecture
 
 ```text
                          USER
                            │
                            ▼
-                 ┌──────────────────┐
-                 │   React Frontend │
-                 │   AI Workspace   │
-                 └────────┬─────────┘
-                          │
-              ┌───────────┼───────────┐
-              │           │           │
-              ▼           ▼           ▼
-          Auth Flow    AI Chat     Code Review
-              │           │           │
-              └───────────┼───────────┘
-                          │
-                        Axios
-                          │
-                          ▼
-                 ┌──────────────────┐
-                 │  Node + Express  │
-                 │     Backend      │
-                 └────────┬─────────┘
-                          │
-                  ┌───────┴────────┐
-                  ▼                ▼
-               MongoDB           Groq AI
-                  │                │
-                  └───────┬────────┘
-                          ▼
+              ┌────────────────────────┐
+              │   React + Vite         │
+              │       Frontend         │
+              └────────────┬───────────┘
+                           │
+             ┌─────────────┼─────────────┐
+             │             │             │
+             ▼             ▼             ▼
+        Authentication   AI Chat      Code Review
+             │             │             │
+             └─────────────┼─────────────┘
+                           │
+                         Axios
+                           │
+                           ▼
+              ┌────────────────────────┐
+              │    Node.js + Express   │
+              │        Backend         │
+              └────────────┬───────────┘
+                           │
+                  ┌────────┴────────┐
+                  ▼                 ▼
+               MongoDB            Groq AI
+                  │                 │
+                  └────────┬────────┘
+                           ▼
                   AI Responses &
                     User History
 ```
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```text
 frontend/
@@ -190,48 +186,7 @@ frontend/
 
 # 🔄 Application Workflows
 
-## 🔐 Authentication Flow
-
-```text
-User
- │
- ├── Register
- │      │
- │      ▼
- │   Backend API
- │
- └── Login
-        │
-        ▼
-   JWT Token
-        │
-        ▼
-    localStorage
-        │
-        ▼
-   AuthContext
-        │
-        ▼
- Protected Routes
-```
-
-Protected pages such as:
-
-```text
-/profile
-/chatbot
-/code-review
-```
-
-redirect unauthenticated users to:
-
-```text
-/login
-```
-
----
-
-## 💬 AI Chat Workflow
+## 🤖 AI Chatbot Workflow
 
 ```text
 User
@@ -240,10 +195,10 @@ User
 Chat Interface
  │
  ▼
-Enter Message
+Enter Programming Question
  │
  ▼
-Axios Request
+Axios API Request
  │
  ▼
 Backend API
@@ -252,10 +207,10 @@ Backend API
 Groq AI Service
  │
  ▼
-AI Response
+AI Generated Response
  │
  ▼
-Markdown Rendering
+React Markdown
  │
  ▼
 Chat Interface
@@ -266,7 +221,7 @@ Conversation History
 
 ---
 
-## 🧠 Code Review Workflow
+## 🧠 AI Code Review Workflow
 
 ```text
 Developer
@@ -275,13 +230,16 @@ Developer
 Code Editor
     │
     ▼
-Submit Source Code
+Enter / Paste Source Code
+    │
+    ▼
+Submit for Review
     │
     ▼
 Axios API Request
     │
     ▼
-Backend
+Backend API
     │
     ▼
 AI Code Analysis
@@ -290,10 +248,54 @@ AI Code Analysis
 Generated Review
     │
     ▼
-ReviewPanel
+Review Panel
     │
     ▼
 Saved Review History
+```
+
+---
+
+# 🔐 Authentication Flow
+
+The application uses JWT-based authentication integrated with the backend.
+
+```text
+                 User
+                  │
+          ┌───────┴────────┐
+          │                │
+       Register           Login
+          │                │
+          └───────┬────────┘
+                  ▼
+             Backend API
+                  │
+                  ▼
+             JWT Token
+                  │
+                  ▼
+             localStorage
+                  │
+                  ▼
+            AuthContext
+                  │
+                  ▼
+          Protected Routes
+```
+
+Protected pages include:
+
+```text
+/profile
+/chatbot
+/code-review
+```
+
+Unauthenticated users are redirected to:
+
+```text
+/login
 ```
 
 ---
@@ -302,22 +304,22 @@ Saved Review History
 
 The frontend communicates with the backend through REST APIs using Axios.
 
-### Authentication
+## Authentication APIs
 
-| Method | Endpoint             | Purpose               |
-| ------ | -------------------- | --------------------- |
-| `POST` | `/api/auth/register` | Register a new user   |
-| `POST` | `/api/auth/login`    | Authenticate a user   |
-| `GET`  | `/api/auth/profile`  | Retrieve user profile |
+| Method | Endpoint             | Purpose                             |
+| ------ | -------------------- | ----------------------------------- |
+| `POST` | `/api/auth/register` | Register a new user                 |
+| `POST` | `/api/auth/login`    | Authenticate a user                 |
+| `GET`  | `/api/auth/profile`  | Retrieve authenticated user profile |
 
-### AI Services
+## AI APIs
 
-| Method | Endpoint         | Purpose                      |
-| ------ | ---------------- | ---------------------------- |
-| `POST` | `/ai/get-review` | Generate AI code review      |
-| `POST` | `/chat/message`  | Send message to AI assistant |
+| Method | Endpoint         | Purpose                          |
+| ------ | ---------------- | -------------------------------- |
+| `POST` | `/ai/get-review` | Generate an AI code review       |
+| `POST` | `/chat/message`  | Send a message to the AI chatbot |
 
-The exact endpoints should match the routes configured in the backend.
+> Endpoint paths should match the routes configured in the backend application.
 
 ---
 
@@ -329,19 +331,29 @@ Create a `.env` file in the frontend root:
 VITE_API_URL=http://localhost:5000
 ```
 
-The application accesses the API URL using:
+The frontend accesses the backend URL using:
 
 ```javascript
 import.meta.env.VITE_API_URL
 ```
 
-> **Security:** Frontend environment variables are exposed to the client after the application is built. Never place private API keys, database credentials, JWT secrets, or other sensitive backend secrets in the frontend.
+For example:
 
-For GitHub, add `.env` to `.gitignore` and optionally provide an `.env.example` file:
-
-```env
-VITE_API_URL=http://localhost:5000
+```javascript
+const API_URL = import.meta.env.VITE_API_URL;
 ```
+
+### Security
+
+Do not store the following in the frontend:
+
+* Groq API keys
+* MongoDB credentials
+* JWT secrets
+* Database passwords
+* Private backend credentials
+
+Frontend environment variables are exposed to the client-side application after the build.
 
 ---
 
@@ -349,7 +361,7 @@ VITE_API_URL=http://localhost:5000
 
 ## Prerequisites
 
-Make sure you have:
+Before running the application, make sure you have:
 
 * **Node.js 18+**
 * **npm** or **yarn**
@@ -358,27 +370,31 @@ Make sure you have:
 
 ---
 
-## Installation
-
-### 1. Clone the repository
+## 1. Clone the Repository
 
 ```bash
 git clone <your-repository-url>
 ```
 
-### 2. Navigate to the frontend
+---
+
+## 2. Navigate to the Frontend
 
 ```bash
 cd frontend
 ```
 
-### 3. Install dependencies
+---
+
+## 3. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 4. Configure environment variables
+---
+
+## 4. Configure Environment Variables
 
 Create:
 
@@ -386,23 +402,29 @@ Create:
 .env
 ```
 
-and add:
+Add:
 
 ```env
 VITE_API_URL=http://localhost:5000
 ```
 
-### 5. Start the development server
+Replace the URL with your actual backend server address if required.
+
+---
+
+## 5. Start the Development Server
 
 ```bash
 npm run dev
 ```
 
-The application will typically be available at:
+The application will typically run at:
 
 ```text
 http://localhost:5173
 ```
+
+Make sure the backend server is running for authentication, chatbot, code review, and history functionality.
 
 ---
 
@@ -420,7 +442,7 @@ Preview the production build locally:
 npm run preview
 ```
 
-The generated production assets are stored in:
+The production-ready files are generated in:
 
 ```text
 dist/
@@ -436,63 +458,111 @@ Run ESLint:
 npm run lint
 ```
 
-ESLint helps maintain consistent and maintainable JavaScript and React code.
+ESLint helps maintain consistent, readable, and maintainable React/JavaScript code.
 
 ---
 
-# 🌐 Deployment
+# 🧩 Core Components
 
-The frontend can be deployed to modern static hosting platforms such as:
+### `ChatBox.jsx`
 
-* Vercel
-* Netlify
-* Render
-* AWS
-* Other Vite-compatible hosting providers
+Provides the main interface for entering and sending messages to the AI chatbot.
 
-Build the application before deployment:
+### `ChatMessage.jsx`
 
-```bash
-npm run build
-```
+Renders individual user and AI messages with Markdown and code formatting support.
 
-Configure the production `VITE_API_URL` in the hosting platform's environment settings.
+### `CodeEditor.jsx`
+
+Provides the interface for entering or pasting source code before submitting it for AI review.
+
+### `ReviewPanel.jsx`
+
+Displays AI-generated code-review results in a structured format.
+
+### `HistorySidebar.jsx`
+
+Provides access to previous chatbot conversations and code-review sessions.
+
+### `Navbar.jsx`
+
+Handles application navigation, authentication state, and user profile access.
+
+### `AuthContext.jsx`
+
+Maintains authentication state and restores the user's session after page refresh.
+
+### `api.jsx`
+
+Handles API communication related to AI code-review functionality.
+
+### `authApi.jsx`
+
+Manages authentication-related API requests.
+
+### `chatApi.jsx`
+
+Handles communication between the chatbot interface and backend chat APIs.
 
 ---
 
 # 🎯 Project Purpose
 
-The AI Developer Workspace demonstrates how modern frontend technologies can be used to build an integrated AI-assisted development environment.
+The **AI Chatbot & Code Reviewer** is designed as an AI-assisted developer productivity platform.
 
-The application focuses on:
+It helps users:
 
-* AI-assisted programming
-* Automated code review
-* Developer productivity
-* Secure authentication
-* REST API integration
-* Persistent user history
-* Modular React architecture
-* Responsive user experience
+* Ask programming and technical questions
+* Understand complex development concepts
+* Analyze source code
+* Identify potential code issues
+* Receive AI-generated improvement suggestions
+* Review previous AI conversations
+* Manage previous code-review results
+* Work within an authenticated developer workspace
+
+---
+
+# 🌐 Deployment
+
+The frontend can be deployed on modern hosting platforms such as:
+
+* Vercel
+* Netlify
+* Render
+* AWS
+* Other Vite-compatible static hosting platforms
+
+Before deployment:
+
+```bash
+npm run build
+```
+
+Configure the production backend URL through the hosting platform's environment variables:
+
+```env
+VITE_API_URL=https://your-production-backend-url
+```
 
 ---
 
 # 🔮 Future Enhancements
 
-Potential improvements include:
+Potential future improvements include:
 
 * GitHub repository integration
-* Automated Pull Request reviews
+* Automated Pull Request code reviews
 * Multi-language code analysis
 * AI-powered code optimization
 * Code quality scoring
-* Vulnerability detection
+* Security and vulnerability analysis
 * AI-generated unit tests
 * Streaming AI responses
 * Conversation search and filtering
-* Developer analytics dashboard
 * Code comparison and diff viewer
-* Voice-based programming assistant
+* Developer analytics dashboard
+* Voice-based AI programming assistant
 
 ---
 
@@ -502,13 +572,32 @@ This project is developed for **educational, portfolio, and demonstration purpos
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Sania Kundu**
+
 Computer Science & Engineering (AI)
 
 ---
 
-### ⭐ Built With
+## ⭐ Project Highlights
 
-**React 19 • Vite • React Router • Axios • React Markdown • Syntax Highlighting • Node.js • Express • MongoDB • Groq AI**
+```text
+AI Chatbot
+     +
+AI Code Reviewer
+     +
+JWT Authentication
+     +
+REST API Integration
+     +
+MongoDB Persistence
+     +
+Groq AI
+     +
+React 19 + Vite
+```
+
+---
+
+**Built for an intelligent, secure, and productive AI-assisted developer workflow.**
